@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMCC-CCIS Week 2025 - Campus Event</title>
+    <link rel="c:\Users\eyehd\Downloads\banner.jpg" href="c:\Users\eyehd\Downloads\banner.jpg" type="jpg">
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f5f7fb;
+            color: #222;
+        }
+
+        .wrapper{
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header{
+            background-color: #004b8d;
+            color: #fff;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        /* NEW: Styles for the logo banner */
+        .header-banner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            gap: 20px;
+        }
+
+        .header-logo {
+            height: 90px; /* Adjust size as needed */
+            width: auto;
+            flex-shrink: 0;
+        }
+
+        .header-text {
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        header h1 {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 1.1em;
+        }
+        /* END NEW */
+
+        nav{
+            background-color: #e1e8f0;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        nav a{
+            margin-right: 15px;
+            text-decoration: none;
+            color: #004b8d;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #0065c3;
+        }
+
+        .container{
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            flex-grow: 1;
+            gap: 20px; /* Added gap for consistent spacing */
+        }
+
+        .main-section{
+            flex: 3 1 250px;
+        }
+
+        /* Added .card to aside element in HTML, so basic styling is covered by .card */
+        aside{
+            flex: 1 1 200px;
+            /* Removed redundant styles from aside, let .card handle them */
+        }
+
+        .card{
+            background-color: #ffffff;
+            border-radius: 8px;
+            /* FIX 3: Corrected padding value '15p 20px' to '15px 20px' */
+            padding: 15px 20px;
+            /* FIX 4: Softened box-shadow opacity value */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .responsive-iframe-container{
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 6px;
+        }
+
+        .responsive-iframe-container iframe{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .code-block{
+            background-color: #222;
+            color: #e8e8e8;
+            padding: 10px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+        
+        /* Removed extraneous whitespace from pre>code in code-block styling */
+        .code-block pre {
+            margin: 0;
+        }
+
+        kbd,samp, .code-block code{ /* Added code tag to inherit style */
+            background-color: #ffe0b2;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: monospace;
+            font-size: 0.9em;
+            color: #343a40;
+        }
+        
+        .code-block code {
+            background-color: transparent;
+            color: #e8e8e8; /* Reset color for dark background */
+        }
+
+        button.primary-btn{
+            background-color: #004b8d;
+            color: #ffffff;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        /* FIX 5: Corrected the button hover selector to remove the space */
+        button.primary-btn:hover{
+            background-color: #0065c3;
+        }
+
+        .faq-content{
+            display: none;
+            margin-top: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        footer{
+            margin-top: auto;
+            background-color: #004b8d;
+            color: #fff;
+            text-align: center;
+            padding: 15px 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Media Queries */
+        @media(max-width: 768px){
+            .container{
+                flex-direction: column;
+            }
+
+            .header-banner {
+                flex-direction: column;
+            }
+
+            .header-logo {
+                height: 70px;
+            }
+            
+            nav a{
+                display: block;
+                margin-bottom: 6px;
+            }
+
+            .card{
+                font-size: 15px;
+            }
+        }
+    </style>
+
+    <script>
+        /* FIX 6: Cleaned up and confirmed the function logic */
+        function toggleFAQ(){
+            const faq = document.getElementById("faq-section");
+            if(faq.style.display === "block"){
+                faq.style.display = "none";
+            } else{
+                faq.style.display = "block";
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', ()=> {
+            const faq = document.getElementById("faq-section");
+            // Ensure FAQ starts hidden when the page loads
+            if (faq){
+                faq.style.display = "none";
+            }
+        });
+    </script>
+</head>
+
+
+<body id="page-root">
+    <div class="wrapper">
+        <header id="hero">
+            <div class="header-banner">
+                <img src="c:\Users\eyehd\Downloads\banner.jpg" alt="Saint Michael College of Caraga Main Logo" class="header-logo">
+                <div class="header-text">
+                    <h1>SMCC-CCIS WEEK 2025 - Tech Innovators</h1>
+                    <p>A week of Innovation, code, and camaraderie! Connecting future tech leaders.</p>
+                </div>
+                <img src="c:\Users\eyehd\Downloads\banner.jpg" alt="College of Computer and Information Sciences Logo" class="header-logo">
+            </div>
+        </header>
+        <nav>
+            <a href="#overview-section">Overview</a>
+            <a href="#schedule">Schedule</a>
+            <a href="#venue-map-section">Venue Map</a>
+            <a href="#faq-area">FAQ</a>
+        </nav>
+
+        <div class="container">
+
+            <section class="main-section">
+
+                <article id="overview-section" class="card">
+                    <h2>About the Event: The Digital Shift</h2>
+                    <div>
+                        <p>The **College of Computer and Information Sciences (CCIS)** proudly presents its annual week-long celebration. This year, our theme focuses on ***The Digital Shift*** in **AI, Cybersecurity, and Web Development**.</p>
+                        
+                        
+                        
+                        <p>Join us for a series of **seminars**, **coding workshops**, and **competitive events**. We aim to foster a collaborative environment where students can network with industry professionals and showcase their talents.</p>
+                    </div>
+                </article>
+
+                <article id="schedule" class="card">
+                    <h2>📅 Event Schedule Highlights</h2>
+                    <ul>
+                        <li>**Day 1 (Mon):** Opening Ceremony & AI Ethics Seminar</li>
+                        <li>**Day 3 (Wed):** Web Development Hackathon Kick-off</li>
+                        <li>**Day 5 (Fri):** Cybersecurity Capture The Flag (CTF) Competition & Awarding Ceremony</li>
+                    </ul>
+                    <p>The full, detailed schedule will be announced in the official CCIS bulletin.</p>
+                </article>
+
+                <article class="card">
+                    <h2>Registration & Tech Commands</h2>
+
+                    <p>To view our full registration process, open your terminal and type:</p>
+                    <div class="code-block">
+                        <pre><code># SSH into the server
+$ ssh user@smcc.edu
+# Run the deployment script
+$ sh deploy.sh
+# Expected output:
+</code></pre>
+                        <samp>Registration server started successfully.</samp>
+                    </div>
+
+                    <p>To run the Application locally, press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd>.</p>
+
+                    <hr>
+                    <h3>Registration URL Example</h3>
+                    <p>The official registration URL with URL-encoded parameters is:</p>
+
+                    <div class="code-block">
+                        <code>https://myschool.edu/events/register?event=SMCC-CCIS%20Week%202025&section=A</code>
+                    </div>
+
+                    <p>The sequence <code style="color: red;">%20</code> in the URL stands for the *space* character.</p>
+                </article>
+
+                <div id="faq-area" class="card">
+                    <h2>Frequently Asked Questions</h2>
+                    <button class="primary-btn" onclick="toggleFAQ()">Toggle FAQ Details</button>
+
+                <div id="faq-section" class="faq-content">
+                    <h4>Q: Do I need to register for every event?</h4>
+                    <p>A: No, a single registration covers all major events. Some workshops may require pre-signup.</p>
+
+                    <h4>Q: HTML vs XHTML comparison</h4>
+                    <p>HTML Style (Non-closing tag example): <code>&lt;br&gt;</code> <br> XHTML Style (Self-closing tag example): <code>&lt;br /&gt;</code></p>
+                    <p>In **XHTML**, all tags must be properly closed and all attributes must be quoted.</p>
+                    </div>
+                </div>
+            </section> 
+
+            <aside id="sidebar-info" class="card sidebar">
+                <h3>Quick Info Panel</h3>
+
+                <p><strong>Date:</strong> February 17-21, 2025</p>
+                <p><strong>Time:</strong> 8:00 AM - 5:00 PM Daily</p>
+                <p><strong>Contact:</strong> events@smcc.edu</p>
+
+                <p>Follow us for reminders</p>
+
+                <h3 id="venue-map-section">📍 Venue Map</h3>
+
+                <p>Locate the main lecture hall:</p>
+                <div class="responsive-iframe-container">
+                    <iframe id="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.824764586886!2d125.33782747483251!3d8.988267091071448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3301ca2f04581cbb%3A0xe4e2656c7835d5f2!2sSaint%20Michael%20College%20of%20Caraga!5e0!3m2!1sen!2sph!4v1764658142210!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </aside>
+        </div>
+
+        <footer>
+            <p>Built with advanced HTML concepts. All rights reserved &copy; 2025</p>
+
+            <p>SMCC-CCIS Week 2025 | Learn. Code. Triumph. 🚀</p>
+        </footer>
+        
+    </div>
+</body>
+</html>
